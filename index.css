@@ -1,0 +1,141 @@
+.helloworld{
+  stroke-dasharray: 160;
+  stroke-dashoffset:0;
+  display:none;
+}
+body{
+  overflow: hidden;
+}
+.yeah{
+  stroke-dasharray: 400;
+  stroke-dashoffset:0;
+  display:none;
+}
+#coverbutton{
+	cursor:pointer;
+  background-color: #FFFFFF;
+	border-color:#000000;
+	border-width:1px;
+	border-style:solid;
+  float:left;
+}
+#face1{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#face2{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#face3{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+@keyframes face {
+  from {
+    stroke-dashoffset: 50;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes helloworld {
+  from {
+    stroke-dashoffset: 160;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes yeah {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes wing {
+  from {
+    stroke-dashoffset: 150;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#wingleft1{
+  stroke-dasharray: 150;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingleft2{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingleft3{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingleft4{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingright1{
+  stroke-dasharray: 150;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingright2{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingright3{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#wingright4{
+  stroke-dasharray: 50;
+  stroke-dashoffset:0;
+  display:none;
+}
+#codebutton{
+  background-color: #FFFFFF;
+  margin-top: 15px;
+	cursor:pointer;
+	border-color:#000000;
+	border-width:1px;
+	border-style:solid;
+  float:left;
+}
+#databutton{
+  background-color: #FFFFFF;
+  cursor:pointer;
+  margin-top: 15px;
+  border-color:#000000;
+  border-width:1px;
+  border-style:solid;
+  float:left;
+}
+#buttonwrapper{
+  width:200px;
+  height:600px;
+  float:left;
+}
+#code{
+  transform: rotate(7deg);
+}
+#rightwrapper{
+  height:650px;
+  width:1140px;
+  float:left;
+  border-style: solid;
+  border-color: black;
+}
