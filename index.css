@@ -18,6 +18,7 @@ body{
 	border-width:1px;
 	border-style:solid;
   float:left;
+  border-right-style: none;
 }
 #face1{
   stroke-dasharray: 50;
@@ -61,6 +62,30 @@ body{
 @keyframes wing {
   from {
     stroke-dashoffset: 150;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes open {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 200;
+  }
+}
+@keyframes close {
+  from {
+    stroke-dashoffset: 200;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes mainborder {
+  from {
+    stroke-dashoffset: 3358;
   }
   to {
     stroke-dashoffset: 0;
@@ -113,6 +138,7 @@ body{
 	border-color:#000000;
 	border-width:1px;
 	border-style:solid;
+  border-right-style: none;
   float:left;
 }
 #databutton{
@@ -123,6 +149,7 @@ body{
   border-width:1px;
   border-style:solid;
   float:left;
+  border-right-style: none;
 }
 #buttonwrapper{
   width:200px;
@@ -133,9 +160,137 @@ body{
   transform: rotate(7deg);
 }
 #rightwrapper{
-  height:650px;
-  width:1140px;
   float:left;
-  border-style: solid;
-  border-color: black;
+}
+#rightborderpath{
+
+}
+#closer{
+  stroke-dasharray: 200;
+  stroke-dashoffset:0;
+}
+#mainborder{
+  stroke-dasharray: 3358;
+  stroke-dashoffset:3358;
+  animation:mainborder 1.5s linear;
+}
+#angelwing1{
+  stroke-dasharray: 31.288;
+  stroke-dashoffset:31.288;
+}
+#angelwing2{
+  stroke-dasharray: 77.515;
+  stroke-dashoffset:77.515;
+}
+@keyframes angelwing1 {
+  from {
+    stroke-dashoffset:31.288;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes angelwing2 {
+  from {
+    stroke-dashoffset:77.515;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody{
+  stroke-dasharray: 138.3;
+  stroke-dashoffset:138.3;
+}
+@keyframes angelbody {
+  from {
+    stroke-dashoffset:138.3;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody2{
+  stroke-dasharray: 15.132;
+  stroke-dashoffset:15.132;
+}
+@keyframes angelbody2 {
+  from {
+    stroke-dashoffset:15.132;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody3{
+  stroke-dasharray: 19.2;
+  stroke-dashoffset:19.2;
+}
+@keyframes angelbody3 {
+  from {
+    stroke-dashoffset:19.2;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody4{
+  stroke-dasharray: 20.615;
+  stroke-dashoffset:20.615;
+}
+@keyframes angelbody4 {
+  from {
+    stroke-dashoffset:20.615;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody5{
+  stroke-dasharray: 114.66;
+  stroke-dashoffset:114.66;
+}
+@keyframes angelbody5 {
+  from {
+    stroke-dashoffset:114.66;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody6{
+  stroke-dasharray: 26.315;
+  stroke-dashoffset:26.315;
+}
+@keyframes angelbody6 {
+  from {
+    stroke-dashoffset:26.315;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#angelbody7{
+  stroke-dasharray: 85.02;
+  stroke-dashoffset:85.02;
+}
+@keyframes angelbody7 {
+  from {
+    stroke-dashoffset:85.02;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#frameborder{
+  stroke-dasharray: 2023;
+  stroke-dashoffset:2023;
+}
+@keyframes frameborder {
+  from {
+    stroke-dashoffset:2023;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
