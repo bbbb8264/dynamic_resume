@@ -171,7 +171,7 @@ $(document).ready(function(){
 		$("#coverbutton #closer").css("animation","open 0.2s linear");
 		if($("#coverbutton #closer").css("stroke-dashoffset")!="200px"){
 			setTimeout(function(){
-				$("#rightwrapper").html('<text id="description" x="'+((($(window).width()-222)/2)-20)+'" y="300" stroke="#000000" style="opacity:0">It is just a resume</text>'+'<path id="mainborder" stroke-width="1.5px" stroke="#000000" fill-opacity="0" d="M0 0 L'+($(window).width()-222)+' 0'+
+				$("#rightwrapper").html('<text id="description" x="'+((($(window).width()-222)/2)-120)+'" y="300" stroke="#000000" style="opacity:0" font-size="50px">我的簡易版簡歷</text>'+'<path id="mainborder" stroke-width="1.5px" stroke="#000000" fill-opacity="0" d="M0 0 L'+($(window).width()-222)+' 0'+
 				' L'+($(window).width()-222)+' 636 L100 636 L100 202 L0 202"/>'+
 				'<svg id="angel" x="'+(($(window).width()-222)*4/5)+'" y="50" width="100px" height="100px">'+
 					'<path id="angelwing1" stroke="#000000" fill="#FFFFFF" d="M60 49 C55 40 70 30 80 42"/>'+
