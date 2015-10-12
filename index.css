@@ -269,3 +269,7 @@ body{
     stroke-dashoffset: 0;
   }
 }
+#bgmusic{
+  position: fixed;
+  
+}

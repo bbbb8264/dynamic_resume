@@ -83,6 +83,37 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$("#rightwrapper").html('<path id="mainborder" stroke-width="1.5px" stroke="#000000" fill-opacity="0" d="M0 434 L100 434 L100 0 L'+($(window).width()-222)+' 0'+
 				' L'+($(window).width()-222)+' 636 L0 636"/>'+
+				'<text id="question1" stroke-width="0" x ="'+(($(window).width()-222)/2-150)+'" y="100" font-size="30" style="opacity:0">欲看內容請先回答問題</text>'+
+				'<text id="question2" stroke-width="0" x ="'+(($(window).width()-222)/2-195)+'" y="150" font-size="30" style="opacity:0">請問：這個網頁的作者是誰：</text>'+
+				'<svg id="answer1" x="'+(($(window).width()-222)/2-130)+'" y="220" width="500" height="100" style="opacity:0">'+
+					'<path stroke="#ffffff" stroke-width="20" fill="#FFFFFF" d="M50 16 L50 36"/>'+
+					'<circle cx="50" cy="26" r="10" fill-opacity="0" stroke="black" stroke-width="1.5" />'+
+					'<text stroke-width="0" x="100" y="33.5" font-size="30">吳軼聞</text>'+
+					'<polygon fill="#00FF00" points="40,20 50,25 70,0 50,35" style="opacity:0"/>'+
+				'</svg>'+
+				'<svg id="answer2" x="'+(($(window).width()-222)/2-130)+'" y="300" width="500" height="280" style="opacity:0">'+
+					'<path stroke="#ffffff" stroke-width="20" fill="#FFFFFF" d="M50 16 L50 36"/>'+
+					'<circle cx="50" cy="26" r="10" fill-opacity="0" stroke="black" stroke-width="1.5" />'+
+					'<text stroke-width="0" x="100" y="33.5" font-size="30">吳腋聞</text>'+
+					'<polygon fill="#00FF00" points="40,20 50,25 70,0 50,35" style="opacity:0"/>'+
+				'</svg>'+
+				'<svg id="answer3" x="'+(($(window).width()-222)/2-130)+'" y="370" width="500" height="100" style="opacity:0">'+
+					'<path stroke="#ffffff" stroke-width="20" fill="#FFFFFF" d="M50 16 L50 36"/>'+
+					'<circle cx="50" cy="26" r="10" fill-opacity="0" stroke="black" stroke-width="1.5" />'+
+					'<text stroke-width="0" x="100" y="33.5" font-size="30">吳yee聞</text>'+
+					'<polygon fill="#00FF00" points="40,20 50,25 70,0 50,35" style="opacity:0"/>'+
+				'</svg>'+
+				'<svg id="answer4" x="'+(($(window).width()-222)/2-130)+'" y="440" width="500" height="100" style="opacity:0">'+
+					'<path stroke="#ffffff" stroke-width="20" fill="#FFFFFF" d="M50 16 L50 36"/>'+
+					'<circle cx="50" cy="26" r="10" fill-opacity="0" stroke="black" stroke-width="1.5" />'+
+					'<text stroke-width="0" x="100" y="33.5" font-size="30">吳懿文</text>'+
+					'<polygon fill="#00FF00" points="40,20 50,25 70,0 50,35" style="opacity:0"/>'+
+				'</svg>'+
+				'<text id="wrong1" fill="red" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth/2-123.32)+'" y="300" font-size="40px" stroke-width="3px">你答錯囉!</text>'+
+				'<text id="wrong2" fill="red" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth/4-50)+'" y="150" font-size="40px" stroke-width="3px">你答錯囉!</text>'+
+				'<text id="wrong3" fill="red" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth*3/4+50)+'" y="150" font-size="40px" stroke-width="3px">你答錯囉!</text>'+
+				'<text id="wrong4" fill="red" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth/4-50)+'" y="450" font-size="40px" stroke-width="3px">你答錯囉!</text>'+
+				'<text id="wrong5" fill="red" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth*3/4+50)+'" y="450" font-size="40px" stroke-width="3px">你答錯囉!</text>'+
 				'<path id="arrow" style="opacity:0" stroke="#000000" fill="#FFFFFF" d="M'+(intialwidth/5)+' 60 L'+(intialwidth/5)+' 450"/>'+
 				'<path id="arrow2" style="opacity:0" stroke="#000000" fill="#FFFFFF" d="M'+(intialwidth/5-50)+' 450 L'+(intialwidth/5)+' 500 L'+(intialwidth/5+50)+' 450"/>'+
 				'<text id="grade1" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth/5+80)+'" y="130" font-size="40px" stroke-width="0px">大二</text>'+
@@ -96,69 +127,365 @@ $(document).ready(function(){
 				'<text id="grade41" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth/2-245)+'" y="560" font-size="40px" stroke-width="0px">欲知詳情請看</text>'+
 				'<a xlink:href="http://bbbb8264.github.io/wp2015/" target="_blank"><text style="opacity:0" id="grade42" stroke-width="2" fill="blue" x="'+(intialwidth/2+20)+'" y="560" font-size="40px" stroke-width="0px">我的上一次作業</text></a>'
 				);
+
 				var mainborderlength = document.querySelector('#mainborder').getTotalLength();
 				$("#mainborder").css("stroke-dasharray",mainborderlength);
 				$("#dynamickeyframe").append("@keyframes mainborder {from {stroke-dashoffset: "+mainborderlength+";}to {stroke-dashoffset: 0;}}");
 				$("#mainborder").css("animation","mainborder 1.5s linear");
 				$("#mainborder").css("stroke-dashoffset","0");
-				$("#grade42").mouseenter(function(){
-					$("#grade42").css({"text-decoration":"underline"});
-				}).mouseleave(function(){
-					$("#grade42").css({"text-decoration":""});
-				});
-				$("#grade42").click(function(){
-					$("#grade42").attr({"fill":"red"});
-				});
+				function setanswerenter(){
+					$("#answer2 path,#answer2 circle,#answer2 polygon").mouseenter(function(){
+						$("#answer2 polygon").css("opacity","1");
+					}).mouseleave(function(){
+						$("#answer2 polygon").css("opacity","0");
+					});
+					$("#answer1 path,#answer1 circle,#answer1 polygon").mouseenter(function(){
+						$("#answer1 polygon").css("opacity","1");
+					}).mouseleave(function(){
+						$("#answer1 polygon").css("opacity","0");
+					});
+					$("#answer3 path,#answer3 circle,#answer3 polygon").mouseenter(function(){
+						$("#answer3 polygon").css("opacity","1");
+					}).mouseleave(function(){
+						$("#answer3 polygon").css("opacity","0");
+					});
+					$("#answer4 path,#answer4 circle,#answer4 polygon").mouseenter(function(){
+						$("#answer4 polygon").css("opacity","1");
+					}).mouseleave(function(){
+						$("#answer4 polygon").css("opacity","0");
+					});
+				}
+				function setanswerclick(){
+					$("#answer1 path,#answer1 circle,#answer1 polygon,#answer2 path,#answer2 circle,#answer2 polygon").click(function(){
+						unbindanswer();
+						$('#bgmusic').append('<embed id="m_bg_music" volume="60" autostart=true hidden=true src="error.mp3" />');
+						$("#wrong1").css("opacity",1);
+						$("#wrong1").attr("font-size", "40");
+						setTimeout(function(){
+							$("#wrong1").css("font-size","40");
+							$("#wrong1").css("x",(intialwidth/2-173.32));
+							$("#wrong1").css("y",300);
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 4000,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+						},250);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 100,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},5220);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 100,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},6400);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 100,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},7600);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 100,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},8100);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 100,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},8533);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 1,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},9116);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 1,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},9333);
+						setTimeout(function(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 1,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						},9500);
+						setTimeout(function(){
+							$("#wrong2,#wrong3,#wrong4,#wrong5").css("opacity",1);
+						},10100);
+						function wrongani(){
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 1,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong1").animate(
+						        { "font-size": 80},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+							$("#wrong2,#wrong3,#wrong4,#wrong5").animate(
+						        { "font-size": 20},
+						        {
+						            duration: 1,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							$("#wrong2,#wrong3,#wrong4,#wrong5").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 50,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont)}
+						        });
+						};
+						setTimeout(function(){
+							wrongani();
+						},10200);
+						setTimeout(function(){
+							wrongani();
+						},10483);
+						setTimeout(function(){
+							wrongani();
+						},10600);
+						setTimeout(function(){
+							wrongani();
+						},11166);
+						setTimeout(function(){
+							wrongani();
+						},11250);
+						setTimeout(function(){
+							wrongani();
+						},11583);
+						setTimeout(function(){
+							wrongani();
+						},12200);
+						setTimeout(function(){
+							wrongani();
+						},13166);
+						setTimeout(function(){
+							wrongani();
+						},13300);
+						setTimeout(function(){
+							wrongani();
+						},13416);
+						setTimeout(function(){
+							wrongani();
+						},14133);
+						setTimeout(function(){
+							wrongani();
+						},14583);
+						setTimeout(function(){
+							wrongani();
+						},15350);
+						setTimeout(function(){
+							wrongani();
+						},15533);
+						setTimeout(function(){
+							wrongani();
+						},16350);
+						setTimeout(function(){
+							wrongani();
+						},16483);
+						setTimeout(function(){
+							wrongani();
+						},17283);
+						setTimeout(function(){
+							wrongani();
+						},17566);
+						setTimeout(function(){
+							$("#wrong1,#wrong2,#wrong3,#wrong4,#wrong5").animate({opacity:0},1000);
+						},18183);
+						setTimeout(function(){
+							$("#wrong1").css("opacity",0);
+							$("#answer1 polygon,#answer2 polygon,#answer3 polygon,#answer4 polygon").css("opacity","0");
+							$("#wrong1").animate(
+						        { "font-size": 40},
+						        {
+						            duration: 1,
+						            step: function(nowfont) { $(this).attr("font-size", nowfont); }
+						        });
+							setanswerenter();
+							setanswerclick();
+						},20000);
+					});
+					$("#answer3 path,#answer3 circle,#answer3 polygon").click(function(){
+						$("#bgmusic").css("top","68");
+						$("#bgmusic").css("left",($(window).width()-222)/2+222-400);
+						$("#bgmusic").html('<video width="800" autoplay ><source src="yee.mp4" type="video/mp4"></video>');
+						setTimeout(function(){
+							$("#bgmusic").html("");
+						},1500);
+					});
+					$("#answer4 path,#answer4 circle,#answer4 polygon").click(function(){
+						$("#question1,#question2,#answer1,#answer2,#answer3,#answer4").css("opacity",0);
+						$("#grade42").mouseenter(function(){
+							$("#grade42").css({"text-decoration":"underline"});
+						}).mouseleave(function(){
+							$("#grade42").css({"text-decoration":""});
+						});
+						$("#grade42").click(function(){
+							$("#grade42").attr({"fill":"red"});
+						});
+						$("#arrow").animate({
+							opacity:1
+						},500);
+						setTimeout(function(){
+							$("#arrow2").animate({
+								opacity:1
+							},500);
+						},500);
+						setTimeout(function(){
+							$("#grade1").animate({
+								opacity:1
+							},500);
+							$("#grade11").animate({
+								opacity:1
+							},500);
+						},1000);
+						setTimeout(function(){
+							$("#grade2").animate({
+								opacity:1
+							},500);
+							$("#grade21").animate({
+								opacity:1
+							},500);
+							$("#grade22").animate({
+								opacity:1
+							},500);
+							$("#grade23").animate({
+								opacity:1
+							},500);
+						},1500);
+						setTimeout(function(){
+							$("#grade3").animate({
+								opacity:1
+							},500);
+							$("#grade31").animate({
+								opacity:1
+							},500);
+						},2000);
+						setTimeout(function(){
+							$("#grade41").animate({
+								opacity:1
+							},500);
+						},2500);
+						setTimeout(function(){
+							$("#grade42").animate({
+								opacity:1
+							},500);
+						},3000);
+					});
+				}
+				setanswerenter();
+				setanswerclick();
+				function unbindanswer(){
+					$("#answer1 path,#answer1 circle,#answer1 polygon,#answer2 path,#answer2 circle,#answer2 polygon,#answer3 path,#answer3 circle,#answer3 polygon,#answer4 path,#answer4 circle,#answer4 polygon").unbind();
+				}
 				setTimeout(function(){
-					$("#arrow").animate({
+					$("#question1").animate({
 						opacity:1
 					},500);
 				},1500);
 				setTimeout(function(){
-					$("#arrow2").animate({
+					$("#question2").animate({
 						opacity:1
 					},500);
 				},2000);
 				setTimeout(function(){
-					$("#grade1").animate({
-						opacity:1
-					},500);
-					$("#grade11").animate({
-						opacity:1
-					},500);
-				},2500);
-				setTimeout(function(){
-					$("#grade2").animate({
-						opacity:1
-					},500);
-					$("#grade21").animate({
-						opacity:1
-					},500);
-					$("#grade22").animate({
-						opacity:1
-					},500);
-					$("#grade23").animate({
+					$("#answer1").animate({
 						opacity:1
 					},500);
 				},3000);
 				setTimeout(function(){
-					$("#grade3").animate({
-						opacity:1
-					},500);
-					$("#grade31").animate({
-						opacity:1
-					},500);
-				},3500);
-				setTimeout(function(){
-					$("#grade41").animate({
+					$("#answer2").animate({
 						opacity:1
 					},500);
 				},4000);
 				setTimeout(function(){
-					$("#grade42").animate({
+					$("#answer3").animate({
 						opacity:1
 					},500);
-				},4500);
+				},5000);
+				setTimeout(function(){
+					$("#answer4").animate({
+						opacity:1
+					},500);
+				},6000);
 			},200);
 		}
 		if($("#coverbutton #closer").css("stroke-dashoffset")=="200px"){
