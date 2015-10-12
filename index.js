@@ -158,7 +158,9 @@ $(document).ready(function(){
 				function setanswerclick(){
 					$("#answer1 path,#answer1 circle,#answer1 polygon,#answer2 path,#answer2 circle,#answer2 polygon").click(function(){
 						unbindanswer();
-						$('#bgmusic').append('<embed id="m_bg_music" volume="60" autostart=true hidden=true src="error.mp3" />');
+						$('#bgmusic').append('<audio id="myaudio" autoplay><source src="error.mp3" type="audio/mpeg"></audio>');
+						var aud = document.getElementById("myaudio");
+						while(aud.onwaiting);
 						$("#wrong1").css("opacity",1);
 						$("#wrong1").attr("font-size", "40");
 						setTimeout(function(){
