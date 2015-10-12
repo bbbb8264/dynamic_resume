@@ -321,6 +321,11 @@ $(document).ready(function(){
 				'<text id="data3" style="opacity:0" stroke="#000000" x="'+((($(window).width()-222)/4)+200+($(window).width()-222)/20) +'" y="230" font-size="20px" stroke-width="0px">就讀學校：  國立成功大學</text>'+
 				'<text id="data4" style="opacity:0" stroke="#000000" x="'+((($(window).width()-222)/4)+200+($(window).width()-222)/20) +'" y="280" font-size="20px" stroke-width="0px">興趣    ：  打LOL、睡覺</text>'
 				);
+				var mainborderlength = document.querySelector('#mainborder').getTotalLength();
+				var keyframes = findKeyframesRule(findKeyframesRule("mainborder"));
+				$("#mainborder").css("stroke-dasharray",mainborderlength);
+				keyframes.deleteRule("0%");
+				keyframes.insertRule("0% { stroke-dashoffset: "+mainborderlength+"; }");
 				$("#mainborder").css("stroke-dashoffset","0");
 				$("#mypic").mouseenter(function(){
 					$("#mypic").attr({"xlink:href":"mypic.jpg"});
@@ -374,4 +379,15 @@ $(document).ready(function(){
 			$("#codebutton #closer").css("animation","close 0.2s linear");
 		}
 	});
+function findKeyframesRule(rule)
+    {
+        var ss = document.styleSheets;
+        for (var i = 0; i < ss.length; ++i) {
+            for (var j = 0; j < ss[i].cssRules.length; ++j) {
+                if (ss[i].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name == rule)
+                    return ss[i].cssRules[j];
+            }
+        }
+        return null;
+    }
 });
