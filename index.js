@@ -158,7 +158,8 @@ $(document).ready(function(){
 				function setanswerclick(){
 					$("#answer1 path,#answer1 circle,#answer1 polygon,#answer2 path,#answer2 circle,#answer2 polygon").click(function(){
 						unbindanswer();
-						$('#bgmusic').append('<audio id="myaudio" autoplay onplaying="wronganimation()"><source src="error.mp3" type="audio/mpeg"></audio>');
+						$('#bgmusic').append('<audio id="myaudio" autoplay><source src="error.mp3" type="audio/mpeg"></audio>');
+						document.getElementById("myaudio").addEventListener("play", wronganimation);
 						function wronganimation(){
 						$("#wrong1").css("opacity",1);
 						$("#wrong1").attr("font-size", "40");
@@ -383,7 +384,7 @@ $(document).ready(function(){
 							setanswerenter();
 							setanswerclick();
 						},20000);
-						}
+					}
 					});
 					$("#answer3 path,#answer3 circle,#answer3 polygon").click(function(){
 						$("#bgmusic").css("top","68");
