@@ -390,11 +390,12 @@ $(document).ready(function(){
 						$("#bgmusic").css("top","68");
 						$("#bgmusic").css("left",($(window).width()-222)/2+222-400);
 						$("#bgmusic").html('<video id="myvideo" width="800" autoplay ><source src="yee.mp4" type="video/mp4"></video>');
-						var vid = document.getElementById("myvideo");
-						while(vid.onwaiting);
-						setTimeout(function(){
-							$("#bgmusic").html("");
-						},1500);
+						document.getElementById("myvideo").addEventListener("play", yee);
+						function yee(){
+							setTimeout(function(){
+								$("#bgmusic").html("");
+							},1500);
+						}
 					});
 					$("#answer4 path,#answer4 circle,#answer4 polygon").click(function(){
 						$("#question1,#question2,#answer1,#answer2,#answer3,#answer4").css("opacity",0);
