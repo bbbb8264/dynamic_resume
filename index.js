@@ -339,6 +339,9 @@ $(document).ready(function(){
 				}).mouseleave(function(){
 					$("#mypic").attr({"xlink:href":"mypic.svg"});
 				});
+				var frameborderlength = document.querySelector('#frameborder').getTotalLength();
+				$("#frameborder").css("stroke-dasharray",frameborderlength);
+				$("#frameborder").css("stroke-dashoffset",frameborderlength);
 				setTimeout(function(){
 					$("#mypic").animate({
 						height:(($(window).width()-222)/4),

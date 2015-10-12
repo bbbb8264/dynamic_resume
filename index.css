@@ -269,15 +269,3 @@ body{
     stroke-dashoffset: 0;
   }
 }
-#frameborder{
-  stroke-dasharray: 2023;
-  stroke-dashoffset:2023;
-}
-@keyframes frameborder {
-  from {
-    stroke-dashoffset:2023;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
