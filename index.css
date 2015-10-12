@@ -83,14 +83,6 @@ body{
     stroke-dashoffset: 0;
   }
 }
-@keyframes mainborder {
-  from {
-    stroke-dashoffset: 3358;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
 #wingleft1{
   stroke-dasharray: 150;
   stroke-dashoffset:0;
@@ -168,11 +160,6 @@ body{
 #closer{
   stroke-dasharray: 200;
   stroke-dashoffset:0;
-}
-#mainborder{
-  stroke-dasharray: 3358;
-  stroke-dashoffset:3358;
-  animation:mainborder 1.5s linear;
 }
 #angelwing1{
   stroke-dasharray: 31.288;

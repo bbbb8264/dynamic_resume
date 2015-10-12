@@ -96,6 +96,10 @@ $(document).ready(function(){
 				'<text id="grade41" style="opacity:0" stroke-width="0" stroke="#000000" x="'+(intialwidth/2-245)+'" y="560" font-size="40px" stroke-width="0px">欲知詳情請看</text>'+
 				'<a xlink:href="http://bbbb8264.github.io/wp2015/" target="_blank"><text style="opacity:0" id="grade42" stroke-width="2" fill="blue" x="'+(intialwidth/2+20)+'" y="560" font-size="40px" stroke-width="0px">我的上一次作業</text></a>'
 				);
+				var mainborderlength = document.querySelector('#mainborder').getTotalLength();
+				$("#mainborder").css("stroke-dasharray",mainborderlength);
+				$("#dynamickeyframe").append("@keyframes mainborder {from {stroke-dashoffset: "+mainborderlength+";}to {stroke-dashoffset: 0;}}");
+				$("#mainborder").css("animation","mainborder 1.5s linear");
 				$("#mainborder").css("stroke-dashoffset","0");
 				$("#grade42").mouseenter(function(){
 					$("#grade42").css({"text-decoration":"underline"});
@@ -188,6 +192,11 @@ $(document).ready(function(){
 				'</svg>'+
 				'<svg id="angelleft" x="'+(($(window).width()-222)/5)+'"y="50" width="100px" height="100px"></svg>'
 				);
+				var mainborderlength = document.querySelector('#mainborder').getTotalLength();
+				$("#mainborder").css("stroke-dasharray",mainborderlength);
+				$("#dynamickeyframe").append("@keyframes mainborder {from {stroke-dashoffset: "+mainborderlength+";}to {stroke-dashoffset: 0;}}");
+				$("#mainborder").css("animation","mainborder 1.5s linear");
+				$("#mainborder").css("stroke-dashoffset","0");
 				setTimeout(function(){
 					$("#angelbody").css("animation","angelbody 0.4s linear");
 					$("#angelbody").css("stroke-dashoffset","0");
@@ -286,7 +295,6 @@ $(document).ready(function(){
 					},300);
 				}
 				loop();*/
-				$("#mainborder").css("stroke-dashoffset","0");
 			},200);
 		}
 		if($("#codebutton #closer").css("stroke-dashoffset")=="200px"){
@@ -322,10 +330,9 @@ $(document).ready(function(){
 				'<text id="data4" style="opacity:0" stroke="#000000" x="'+((($(window).width()-222)/4)+200+($(window).width()-222)/20) +'" y="280" font-size="20px" stroke-width="0px">興趣    ：  打LOL、睡覺</text>'
 				);
 				var mainborderlength = document.querySelector('#mainborder').getTotalLength();
-				var keyframes = findKeyframesRule(findKeyframesRule("mainborder"));
 				$("#mainborder").css("stroke-dasharray",mainborderlength);
-				keyframes.deleteRule("0%");
-				keyframes.insertRule("0% { stroke-dashoffset: "+mainborderlength+"; }");
+				$("#dynamickeyframe").append("@keyframes mainborder {from {stroke-dashoffset: "+mainborderlength+";}to {stroke-dashoffset: 0;}}");
+				$("#mainborder").css("animation","mainborder 1.5s linear");
 				$("#mainborder").css("stroke-dashoffset","0");
 				$("#mypic").mouseenter(function(){
 					$("#mypic").attr({"xlink:href":"mypic.jpg"});
@@ -379,15 +386,4 @@ $(document).ready(function(){
 			$("#codebutton #closer").css("animation","close 0.2s linear");
 		}
 	});
-function findKeyframesRule(rule)
-    {
-        var ss = document.styleSheets;
-        for (var i = 0; i < ss.length; ++i) {
-            for (var j = 0; j < ss[i].cssRules.length; ++j) {
-                if (ss[i].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name == rule)
-                    return ss[i].cssRules[j];
-            }
-        }
-        return null;
-    }
 });
