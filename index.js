@@ -160,7 +160,7 @@ $(document).ready(function(){
 						unbindanswer();
 						$('#bgmusic').append('<audio id="myaudio" autoplay><source src="error.mp3" type="audio/mpeg"></audio>');
 						var aud = document.getElementById("myaudio");
-						while(aud.onwaiting);
+						while(aud.onwaiting)$("body").append(aud.onwaiting);
 						$("#wrong1").css("opacity",1);
 						$("#wrong1").attr("font-size", "40");
 						setTimeout(function(){
