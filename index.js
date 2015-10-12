@@ -84,7 +84,7 @@ $(document).ready(function(){
 				$("#rightwrapper").html('<path id="mainborder" stroke-width="1.5px" stroke="#000000" fill-opacity="0" d="M0 434 L100 434 L100 0 L'+($(window).width()-222)+' 0'+
 				' L'+($(window).width()-222)+' 636 L0 636"/>'+
 				'<text id="question1" stroke-width="0" x ="'+(($(window).width()-222)/2-150)+'" y="100" font-size="30" style="opacity:0">欲看內容請先回答問題</text>'+
-				'<text id="question2" stroke-width="0" x ="'+(($(window).width()-222)/2-195)+'" y="150" font-size="30" style="opacity:0">請問：這個網頁的作者是誰：</text>'+
+				'<text id="question2" stroke-width="0" x ="'+(($(window).width()-222)/2-180)+'" y="150" font-size="30" style="opacity:0">請問這個網頁的作者是誰？</text>'+
 				'<svg id="answer1" x="'+(($(window).width()-222)/2-130)+'" y="220" width="500" height="100" style="opacity:0">'+
 					'<path stroke="#ffffff" stroke-width="20" fill="#FFFFFF" d="M50 16 L50 36"/>'+
 					'<circle cx="50" cy="26" r="10" fill-opacity="0" stroke="black" stroke-width="1.5" />'+
@@ -471,27 +471,27 @@ $(document).ready(function(){
 					$("#question2").animate({
 						opacity:1
 					},500);
-				},2000);
+				},2500);
 				setTimeout(function(){
 					$("#answer1").animate({
 						opacity:1
 					},500);
-				},3000);
+				},3500);
 				setTimeout(function(){
 					$("#answer2").animate({
 						opacity:1
 					},500);
-				},4000);
+				},4500);
 				setTimeout(function(){
 					$("#answer3").animate({
 						opacity:1
 					},500);
-				},5000);
+				},5500);
 				setTimeout(function(){
 					$("#answer4").animate({
 						opacity:1
 					},500);
-				},6000);
+				},6500);
 			},200);
 		}
 		if($("#coverbutton #closer").css("stroke-dashoffset")=="200px"){
