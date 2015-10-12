@@ -322,7 +322,7 @@ $(document).ready(function(){
 				var twistfatewidth = twistfateheight;
 				$("#rightwrapper").html('<path id="mainborder" stroke-width="1.5px" stroke="#000000" fill-opacity="0" d="M0 217 L100 217 L100 0 L'+($(window).width()-222)+' 0'+
 				' L'+($(window).width()-222)+' 636 L100 636 L100 419 L0 419"/>'+
-				'<image id="twistfate" style="opacity:0" xlink:href="twistfate.jpg" height="'+twistfateheight+'" width="'+twistfatewidth+'" x="'+(framewidth-60)+'" y="'+(frameheight-130)+'"/>'+
+				'<image id="twistfate" style="opacity:0" xlink:href="twistfate.jpg" height="'+twistfateheight+'" width="'+twistfatewidth+'" x="'+(framewidth-60)+'" y="'+(frameheight-twistfateheight/3)+'"/>'+
 				'<path id="frameborder" fill-opacity="0" stroke="#000000" stroke-width="1px" d="M200 30 L'+framewidth+' 30 S'+(framewidth+50)+' 30 '+(framewidth+50)+' 50 L'+(framewidth+50)+' '+frameheight+' S'+(framewidth+50)+' '+(frameheight+30)+
 				' '+framewidth+' '+(frameheight+30)+' L200 '+ (frameheight+30) +' S150 '+ (frameheight+30) + ' 150 '+ frameheight + 'L150 50 S150 30 200 30"/>'+
 				'<image id="mypic" style="opacity:0" xlink:href="mypic.svg" x="200" y="60"/>'+
