@@ -388,7 +388,9 @@ $(document).ready(function(){
 					$("#answer3 path,#answer3 circle,#answer3 polygon").click(function(){
 						$("#bgmusic").css("top","68");
 						$("#bgmusic").css("left",($(window).width()-222)/2+222-400);
-						$("#bgmusic").html('<video width="800" autoplay ><source src="yee.mp4" type="video/mp4"></video>');
+						$("#bgmusic").html('<video id="myvideo" width="800" autoplay ><source src="yee.mp4" type="video/mp4"></video>');
+						var vid = document.getElementById("myvideo");
+						while(vid.onwaiting);
 						setTimeout(function(){
 							$("#bgmusic").html("");
 						},1500);
