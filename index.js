@@ -158,7 +158,7 @@ $(document).ready(function(){
 				function setanswerclick(){
 					$("#answer1 path,#answer1 circle,#answer1 polygon,#answer2 path,#answer2 circle,#answer2 polygon").click(function(){
 						unbindanswer();
-						$('#bgmusic').append('<audio id="myaudio" autoplay onplaying="wrongfunction()"><source src="error.mp3" type="audio/mpeg"></audio>');
+						$('#bgmusic').append('<audio id="myaudio" autoplay onplaying="wronganimation()"><source src="error.mp3" type="audio/mpeg"></audio>');
 						function wronganimation(){
 						$("#wrong1").css("opacity",1);
 						$("#wrong1").attr("font-size", "40");
