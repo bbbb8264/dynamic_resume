@@ -158,8 +158,11 @@ $(document).ready(function(){
 				function setanswerclick(){
 					$("#answer1 path,#answer1 circle,#answer1 polygon,#answer2 path,#answer2 circle,#answer2 polygon").click(function(){
 						unbindanswer();
-						$('#bgmusic').html('<audio id="myaudio" autoplay><source src="error.mp3" type="audio/mpeg"></audio>');
-						document.getElementById("myaudio").addEventListener("play", wronganimation);
+						$('#bgmusic').html('<audio id="myaudio"><source src="error.mp3" type="audio/mpeg"></audio>');
+						document.getElementById("myaudio").oncanplaythrough = function() {
+							document.getElementById("myaudio").play();
+						    wronganimation();
+						};				
 						function wronganimation(){
 						$("#wrong1").css("opacity",1);
 						$("#wrong1").attr("font-size", "40");
@@ -390,7 +393,10 @@ $(document).ready(function(){
 						$("#bgmusic").css("top","68");
 						$("#bgmusic").css("left",($(window).width()-222)/2+222-400);
 						$("#bgmusic").html('<video id="myvideo" width="800" autoplay ><source src="yee.mp4" type="video/mp4"></video>');
-						document.getElementById("myvideo").addEventListener("play", yee);
+						document.getElementById("myvideo").oncanplaythrough = function() {
+							document.getElementById("myvideo").play();
+						    yee();
+						};				
 						function yee(){
 							setTimeout(function(){
 								$("#bgmusic").html("");
